@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Train Activity</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+	<div class="jumbotron">
+	  <h1 class="text-center">Train Time!</h1>
+	  <p class="text-center">Check out the awesome schedule!</p>
+	</div>
+	<div class="panel panel-info">
+		<table class="table table-hover" id="train-table">
+			<p class="panel-heading panel-info"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Current Train Schedule</p>
+			<thead>
+				<tr>
+					<th>Train Name</th>
+					<th>Destination</th>
+					<th>Frequency (min)</th>
+					<th>Next Arrival</th>
+					<th>Minutes Away</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+	<div class="panel panel-info">
+		<p class="panel-heading"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Add Train</p>
+		<form class="form-horizontal">
+			<div class="row">						
+				<div class="panel-body">				
+				    <div class="form-group-lg col-md-12">
+					    <label for="train-name" class="control-label">Train Name</label>
+					    <input type="text" class="form-control" id="input-train-name" placeholder="train">
+					  </div>
+				    <div class="form-group-lg col-md-12">
+					    <label for="destination" class="control-label">Destination</label>
+					    <input type="text" class="form-control" id="input-destination" placeholder="Destination">
+					   	</div>
+				    <div class="form-group-lg col-md-12">
+					    <label for="first-train-time" class="control-label">First Train Time(HH:mm - military time)
+					    </label>
+					    <input type="time" class="form-control" id="input-time" placeholder="First Train Time" >
+					   	</div> 
+				    <div class="form-group-lg col-md-12">
+					    <label for="frequency" class="control-label">Frequency</label>
+					    <input type="number" class="form-control" id="input-frequency" placeholder="Frequency">
+					    </div>			
+					</div>
+				</div>			
+			</form>
+			<div class="btn-position">
+				<button class="btn btn-primary btn-lg" id="info-submit" type="submit">Submit</button>
+			</div>
+		</div>	
+</div>
+
+<script
+  src="http://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+
+
+
+
+
+</body>
+</html>

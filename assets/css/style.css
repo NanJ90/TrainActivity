@@ -1,0 +1,7 @@
+*{
+	box-sizing: border-box;
+}
+.btn-position{
+	text-align: center;
+	margin-bottom:10px;
+}
