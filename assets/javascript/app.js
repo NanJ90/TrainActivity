@@ -19,13 +19,13 @@ $(document).on("click","#info-submit", function(event){
 	var frequency = $("#input-frequency").val().trim();
 	var firstTrain = $("#input-time").val().trim();
 
-	var train_format = moment(firstTrain).subtract(1,"years");
+	var train_format = moment(firstTrain, "hh:mm").subtract(1,"years").format("X");
 	console.log(train_format);
 
 	var currentTime = moment();
-	console.log("current time: " + moment(currentTime).format("hh:mm"));
+	console.log("current time: " + moment(currentTime).format("X"));
 
-	var diffTime = moment().diff(moment(train_format),"minutes");
+	var diffTime = moment().diff(moment.unix(train_format),"minutes");
 	console.log("difference in time: " + diffTime);
 
 	var remainder = diffTime % frequency; 
@@ -35,29 +35,26 @@ $(document).on("click","#info-submit", function(event){
 	console.log("minutes till train: " + left);
 
 	next = moment().add(left, "minutes");
+	next =  moment(next).format("hh:mm");
 	console.log("arrival time" + moment(next).format("hh:mm"));
+
+
+	alert("Your Train Has been Added!")
+
+
+	$("#input-train-name").val("");
+	$("#input-destination").val("");
+	$("#input-frequency").val("");
+	$("#input-time").val("");
 
 	var newTrain = {
 		name: trainName,
 		destination: destination,
 		frequency: frequency,
-		firstTrain: firstTrain
-
+		train_format:train_format
 	}
+		database.ref().push(newTrain);
 
-	console.log(newTrain.name);
-	console.log(newTrain.destination);
-	console.log(newTrain.frequency);
-	console.log(newTrain.firstTrain);
-
-	alert("Your Train Has been Added!")
-
-	database.ref().push(newTrain);
-
-	trainName = $("#input-train-name").val("");
-	destination = $("#input-destination").val("");
-	frequency = $("#input-frequency").val("");
-	firstTrain = $("#input-time").val("");
 });
 
 
@@ -67,11 +64,13 @@ $(document).on("click","#info-submit", function(event){
 	var trainName = childSnapshot.val().name;
 	var destination = childSnapshot.val().destination;
 	var frequency = childSnapshot.val().frequency;
-	var next = moment(next).format("hh:mm");
+	var train_format = childSnapshot.val().train_format;
+	var diffTime = moment().diff(moment.unix(train_format),"minutes");
+	var remainder = diffTime % frequency; 
+		left = frequency - remainder;
+		next = moment().add(left, "minutes");
+		next =  moment(next).format("hh:mm");
 
-	console.log(trainName);
-	console.log(destination);
-	console.log(frequency);
 
 	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + next + "</td><td>" + left + "</td><tr>");
 
