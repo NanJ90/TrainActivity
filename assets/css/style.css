@@ -1,6 +1,21 @@
 *{
 	box-sizing: border-box;
 }
+
+.jumbotron{
+	background-image: url("https://media.giphy.com/media/TlK63EDww4g4tXUd0gE/giphy.gif");
+}
+
+.jumbotron h1,
+.jumbotron p{
+	font-family: 'Anton', sans-serif;
+	color: #14446A;
+}
+tr,
+label,
+button{
+	font-family: 'Droid Sans Mono', monospace;
+}
 .btn-position{
 	text-align: center;
 	margin-bottom:10px;

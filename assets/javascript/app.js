@@ -72,7 +72,7 @@ $(document).on("click","#info-submit", function(event){
 		next =  moment(next).format("hh:mm");
 
 
-	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + next + "</td><td>" + left + "</td><tr>");
+	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + " mm </td><td>" + next + "</td><td>" + left + " mm </td><tr>");
 
 });
 
