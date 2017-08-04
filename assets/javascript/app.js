@@ -1,3 +1,4 @@
+$(document).ready(function(){
 var config = {
     apiKey: "AIzaSyAfVaTD-YZ1Y-aDkagMJAMQcV18CsT_Imk",
     authDomain: "train-activity-54f96.firebaseapp.com",
@@ -73,6 +74,8 @@ $(document).on("click","#info-submit", function(event){
 
 
 	$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + " mm </td><td>" + next + "</td><td>" + left + " mm </td><tr>");
+
+});
 
 });
 
